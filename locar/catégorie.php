@@ -13,7 +13,7 @@
 </head>
 <body>
     <?php 
-    $reqet="SELECT DISTINCT MARQUE FROM automobile";
+    $reqet="SELECT DISTINCT CAT FROM automobile";
     $resultat=mysqli_query($cnlocar,$reqet);
     while($ligne=mysqli_fetch_assoc($resultat))
 {
@@ -22,8 +22,8 @@
     <div class="row">
 <div class=" col-12 d-flex justify-content-center mb-5">
 <div class="card " style="width: 18rem;">
-    <h5 style= "text-align:center;" class="card-title"><?php echo $ligne['MARQUE'];?></h5>
-    <a href="tcategorie.php?nomcat=<?php echo $ligne['MARQUE'];?>" id="csscat" class="btn btn-success">Decouvert</a>
+    <h5 style= "text-align:center;" class="card-title"><?php echo $ligne['CAT'];?></h5>
+    <a href="tcategorie.php?nomcat=<?php echo $ligne['CAT'];?>" id="csscat" class="btn btn-success">Decouvert</a>
   </div>
 </div>
 </div>

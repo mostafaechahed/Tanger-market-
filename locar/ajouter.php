@@ -11,15 +11,22 @@
 <body>
     <div id="container">
         <form name="formAdd" action="" enctype="multipart/form-data" method="POST" class="formulaire" >
-    <h2 align="center">Ajouter nouvelle voiture...</h2>
-    <label for=""><b>Immatriculation:</b></label>
-    <input type="text" name="txtImm" class="zonetext"placeholder="Entrer Immatriculation" required><br>
-    <label for=""><b>Marque:</b></label>
-    <input type="text" name="txtMarque" class="zonetext"placeholder="Entrer la marque" required><br>
-    <label for=""><b>Prix de location:</b></label>
-    <input type="text" name="txtPl" class="zonetext"placeholder="Entrer le prix de location" required><br>
+    <h2 align="center">Ajouter un nouvelle produit...</h2>
+    <label for=""><b>Id:</b></label>
+    <input type="text" name="txtImm" class="zonetext"placeholder="Entrer Id" required><br>
+
+    <label for=""><b>Nom:</b></label>
+    <input type="text" name="txtMarque" class="zonetext"placeholder="Entrer le nom" required><br>
+
+    <label for=""><b>Prix :</b></label>
+    <input type="text" name="txtPl" class="zonetext"placeholder="Entrer le prix" required><br>
+
+    <label for=""><b>Categorie :</b></label>
+    <input type="text" name="txtCT" class="zonetext"placeholder="Entre categorie" required><br>
+
     <label for=""><b>Photo:</b></label>
     <input type="file" name="txtphoto" class="zonetext" placeholder="choisie une image" required><br>
+
     <input type="submit" name="Ajouter" value="Ajouter" id="submit">
 <p><a href="accuile.php" class="submit">Tableau de bord</a></p>
 <label for="" style="text-align:center;color:#960406">
@@ -31,12 +38,13 @@ if(isset($_POST['Ajouter']))
     $imm=$_POST['txtImm'];
     $marque=$_POST['txtMarque'];
     $prixloc=$_POST['txtPl'];
+    $cat=$_POST['txtCT'];
 
     $image=$_FILES['txtphoto']['tmp_name'];
     $target="images/".$_FILES['txtphoto']['name'];
     move_uploaded_file($image,$target);
 
-    $reqAdd="INSERT INTO automobile(IMM,MARQUE,PRXLOCA,PHOTO) VALUES('$imm','$marque','$prixloc','$target')";
+    $reqAdd="INSERT INTO automobile(IMM,MARQUE,PRXLOCA,CAT,PHOTO) VALUES('$imm','$marque','$prixloc','$cat','$target')";
     $resultat= mysqli_query($cnlocar,$reqAdd);
 
 if($resultat)

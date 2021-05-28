@@ -18,8 +18,8 @@
     <div id="entete" class="row">
         <div class="col-md">
     <a href="login.php" class="login" >login</a>
-    <video autoplay="autoplay"  class="video_entete" muted src="loc.mp4" type="viseo/mp4"></video>
-    <p class="nomesit">location car</p>
+    <video autoplay="autoplay"  class="video_entete" muted src="mar.mp4" type="viseo/mp4"></video>
+    <p class="nomesit">Marchée Tanger</p>
   
     </div>
     </div>
@@ -37,15 +37,17 @@
     $resultat=mysqli_query($cnlocar,$reqSelect);
     $nbr=mysqli_num_rows($resultat);
    
-    echo "<p><b>".$nbr."</b>Resultats de votre recherch...</p>";
+    echo "<p><b>".$nbr."</b>Produit...</p>";
     while($ligne=mysqli_fetch_assoc($resultat)){
 
     ?>
-    <div id="auto">
+    <div id="auto" style="margin-bottom:10px">
     <img style="width: 130px;height: 100px;" id="img" src="<?php echo $ligne['PHOTO']?>"/><br>
     <?php echo $ligne['IMM']; ?><br>
     <?php echo $ligne['MARQUE']; ?><br>
-    <?php echo $ligne['PRXLOCA']; ?>
+    <?php echo $ligne['CAT']; ?><br>
+    <?php echo $ligne['PRXLOCA']."(dh)"; ?>
+
     </div>
     <?php } ?>
 

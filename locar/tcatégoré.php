@@ -14,9 +14,9 @@
 <body>
 <table width="100%" border="1" style="text-align:center;">
       <tr>
-          <th>Immatriculation</th>
-          <th>Marque</th>
-          <th>Prix de localtion</th>
+          <th>id</th>
+          <th>Nom</th>
+          <th>Prix </th>
           <th>Catégorie</th>
           <th>Photo</th>
       </tr>
@@ -24,7 +24,7 @@
 if(isset($_GET['nomcat']))
 {
     $cat=$_GET['nomcat'];
-    $reqCat="SELECT * FROM autmobile WHERE NOMV='$cat'";
+    $reqCat="SELECT * FROM autmobile WHERE CAT='$cat'";
     $resultat=mysqli_query($cnlocar,$reqCat);
 }
     
@@ -35,7 +35,7 @@ while($ligne=mysqli_fetch_assoc($resultat))
           <td><?php echo $ligne['IMM'];?></td>
           <td><?php echo $ligne['MARQUE'];?></td>
           <td><?php echo $ligne['PRXLOCA'];?></td>
-          <td><?php echo $ligne['NOMV'];?></td>
+          <td><?php echo $ligne['CAT'];?></td>
           
           <td><img src='<?php echo $ligne['PHOTO'];?>' class="photopro"></td>
       </tr>

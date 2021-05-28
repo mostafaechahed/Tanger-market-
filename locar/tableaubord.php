@@ -15,21 +15,22 @@
 <body>
 <p style="text-align:center"><b> <a href="catégorie.php">CATEGORIE</a></b></p>
 
-    <p><h1>liste des voiture</h1>
+    <p><h1>liste des produit</h1>
 
     <?php
     $reqselect="SELECT * FROM automobile";
     $resultat=mysqli_query($cnlocar,$reqselect);
     $nbr=mysqli_num_rows($resultat);
-    echo "<p> Total <b>".$nbr."</b> Voitures...</p>";
+    echo "<p> Total <b>".$nbr."</b> produits...</p>";
     ?>
     </p>
     <p><a href="ajouter.php"><img src="images/ajouter.png" width="50px" height="50px" alt=""></a></p>
-    <table width="100%" border="1">
+    <table class="table table-hover table-light" width="100%" border="1">
         <tr>
-            <th>immatriculation</th>
-            <th>Marque</th>
-            <th>prix de location</th>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>prix(dh) </th>
+            <th>Categorie</th>
             <th>photo</th>
             <th>supprimer</th>
             <th>modifie</th>
@@ -43,6 +44,7 @@
            <td><?php echo $ligne['IMM']?></td>
            <td><?php echo $ligne['MARQUE']?></td>
            <td><?php echo $ligne['PRXLOCA']?></td>
+           <td><?php echo $ligne['CAT']?></td>
            <td><img src="<?php echo $ligne['PHOTO'] ?>" class="photocar" width="100px" height="60px"></td>
            <td><a href="supprime.php?supcar=<?php echo $ligne['IMM']?>"><img src="images/supprime.jpg" width="50px" height="50px" alt=""></a></td>
            <td><a href="modifie.php?mod=<?php echo $ligne['IMM']?>"><img src="images/modifier.jpg" width="50px" height="50px" alt=""></a></td>
